@@ -1,12 +1,21 @@
-- **enable-ntp.sh**  
-  Installs and starts Chrony to keep your server’s time in sync. Accurate time helps with clustering and logs.
+# Proxmox Setup Scripts
 
-- **enable-zfs-trim.sh**  
-  Enables periodic TRIM on your ZFS SSD pools to keep your drives healthy and performing well.
+Just a few small scripts I use after installing Proxmox VE.
 
-- **update-and-reboot-if-needed.sh**  
-  Updates all packages and, if a reboot is required, automatically reboots your system.
+Originally I used [TTeck’s excellent community scripts](https://community-scripts.github.io/ProxmoxVE/) (RIP ❤️), but had some security concerns about running code straight from the internet as root.
 
----
+So I wrote my own.
 
-All scripts are simple and meant to be run individually or together.
+### What does it do?
+
+Primarily, this disables the Proxmox subscription nag.
+
+In addition, it includes an unattended ISO for Windows 10/11 deployments and several other handy scripts to make your life easier.
+That’s it.
+
+### Usage
+
+```bash
+wget https://raw.githubusercontent.com/DaHyper/proxmox-setup-scripts/main/postpveinstall-disablenag.sh
+chmod +x postpveinstall-disablenag.sh
+sudo ./postpveinstall-disablenag.sh
